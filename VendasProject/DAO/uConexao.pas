@@ -12,12 +12,14 @@ type
   TConexao = class
   private
     FConn: TFDConnection;
+    FTransanction: TFDTransaction;
     procedure ConfigurarConexao;
   public
     constructor Create;
     destructor Destroy; override;
     function GetConexao: TFDConnection;
     function CriarQuery: TFDQuery;
+    function GetTransacao: TFDTransaction;
   end;
 
 implementation
@@ -38,6 +40,10 @@ constructor TConexao.Create;
 begin
   FConn := TFDConnection.Create(nil);
 
+  FTransanction := TFDTransaction.Create(nil);
+  FTransanction.Connection := FConn;
+  FTransanction.Options.Isolation := xiReadCommitted;
+
   Self.ConfigurarConexao();
 end;
 
@@ -54,13 +60,18 @@ end;
 destructor TConexao.Destroy;
 begin
   FConn.Free;
-
+  FTransanction.Free;
   inherited;
 end;
 
 function TConexao.GetConexao: TFDConnection;
 begin
   Result := FConn;
+end;
+
+function TConexao.GetTransacao: TFDTransaction;
+begin
+  Result := FTransanction;
 end;
 
 end.

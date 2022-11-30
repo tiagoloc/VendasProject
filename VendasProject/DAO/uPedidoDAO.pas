@@ -43,7 +43,13 @@ begin
     pFiltro := '%' + pFiltro + '%'
   end;
 
-  lQrPedido.SQL.Text := ' SELECT ped.id_pedido,                                                                                       ' + ' 	     concat("#00",ped.id_pedido, " - (" , ped.dt_pedido ,") " ,cli.nome, IFNULL(concat(" / ", cid.nome, "-", cid.uf), ""))   descricao ' + ' FROM   db_vendas.pedido ped inner join                                                                                ' + ' 	     db_vendas.cliente cli                      ' + '        on   ped.id_cliente = cli.id_cliente                                                                                   ' + '      left join  db_vendas.cidade cid    on cid.id_cidade = cli.id_cidade                                                                             ' + lWhere;
+  lQrPedido.SQL.Text := ' SELECT ped.id_pedido, ' +
+                        ' 	     concat("#00",ped.id_pedido, " - (" , ped.dt_pedido ,") " ,cli.nome, IFNULL(concat(" / ", cid.nome, "-", cid.uf), ""))   descricao ' +
+                        ' FROM   db_vendas.pedido ped inner join ' +
+                        ' 	     db_vendas.cliente cli ' +
+                        '        on   ped.id_cliente = cli.id_cliente ' +
+                        '      left join  db_vendas.cidade cid    on cid.id_cidade = cli.id_cidade ' +
+                        lWhere;
 
   lQrPedido.ParamByName('filtro').Value := pFiltro;
   lQrPedido.Prepare;
@@ -59,7 +65,17 @@ var
 begin
   lQrPedidoProduto := FConexao.CriarQuery();
 
-  lQrPedidoProduto.SQL.Text := ' SELECT ped.id_pedido_produto,       ' + '        ped.id_pedido,               ' + '        ped.id_produto,              ' + '        ped.quantidade,              ' + '        ped.valor_unidade,           ' + '        ped.valor_total,             ' + '        pro.descricao                ' + ' FROM   db_vendas.pedido_produto ped, ' + '        db_vendas.produto pro         ' + ' WHERE  pro.id_produto = ped.id_produto ' + '        and ped.id_pedido = :pIdPedidos  ';
+  lQrPedidoProduto.SQL.Text := ' SELECT ped.id_pedido_produto,       ' +
+                               '        ped.id_pedido,               ' +
+                               '        ped.id_produto,              ' +
+                               '        ped.quantidade,              ' +
+                               '        ped.valor_unidade,           ' +
+                               '        ped.valor_total,             ' +
+                               '        pro.descricao                ' +
+                               ' FROM   db_vendas.pedido_produto ped, ' +
+                               '        db_vendas.produto pro         ' +
+                               ' WHERE  pro.id_produto = ped.id_produto ' +
+                               '        and ped.id_pedido = :pIdPedidos  ';
 
   lQrPedidoProduto.ParamByName('pIdPedidos').Value := pIdPedido;
   lQrPedidoProduto.Prepare;
@@ -75,18 +91,20 @@ var
 begin
   lQryPedido := FConexao.CriarQuery();
   try
-    FConexao.GetConexao.StartTransaction;
+    lQryPedido.Transaction := FConexao.GetTransacao;
+    FConexao.GetTransacao.StartTransaction;
     lQryPedido.ExecSQL(' INSERT INTO db_vendas.pedido (id_cliente, valor_total) VALUES (:id_cliente , :valor_total)', [pPedido.IdCliente, pPedido.ValorTotal]);
     pPedido.ID := FConexao.GetConexao.GetLastAutoGenValue('id_pedido');
     for lPedidoProduto in pPedido.ListaPedidoProduto do
     begin
-      lQryPedido.ExecSQL(' INSERT INTO db_vendas.pedido_produto (id_pedido,id_produto,quantidade,valor_unidade) ' + ' VALUES (:id_pedido,:id_produto,:quantidade,:valor_unidade) ', [pPedido.ID, lPedidoProduto.IdProduto, lPedidoProduto.Quantidade, lPedidoProduto.ValorUnitario]);
+      lQryPedido.ExecSQL(' INSERT INTO db_vendas.pedido_produto (id_pedido,id_produto,quantidade,valor_unidade) ' +
+                         ' VALUES (:id_pedido,:id_produto,:quantidade,:valor_unidade) ', [pPedido.ID, lPedidoProduto.IdProduto, lPedidoProduto.Quantidade, lPedidoProduto.ValorUnitario]);
     end;
-    FConexao.GetConexao.Commit;
+    FConexao.GetTransacao.Commit;
     Result := True;
   except
     lQryPedido.Free;
-    FConexao.GetConexao.Rollback;
+    FConexao.GetTransacao.Rollback;
     Result := False;
   end;
 end;
@@ -97,15 +115,16 @@ var
 begin
   lQryPedido := FConexao.CriarQuery();
   try
-    FConexao.GetConexao.StartTransaction;
+    lQryPedido.Transaction := FConexao.GetTransacao;
+    FConexao.GetTransacao.StartTransaction;
     lQryPedido.ExecSQL('DELETE FROM db_vendas.pedido_produto WHERE id_pedido = :id_pedido', [pIdPedido]);
     lQryPedido.ExecSQL('DELETE FROM db_vendas.pedido WHERE id_pedido = :id_pedido', [pIdPedido]);
 
-    FConexao.GetConexao.Commit;
+    FConexao.GetTransacao.Commit;
     Result := True;
   except
     lQryPedido.Free;
-    FConexao.GetConexao.Rollback;
+    FConexao.GetTransacao.Rollback;
     Result := False;
   end;
 end;
