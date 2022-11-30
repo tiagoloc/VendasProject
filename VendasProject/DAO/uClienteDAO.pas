@@ -39,7 +39,13 @@ begin
     pFiltro := '%' + pFiltro + '%'
   end;
 
-  lQrCliente.SQL.Text := ' select cli.id_cliente,		           ' + '        concat(cli.id_cliente, " - " ,cli.nome, IFNULL(concat(" / ", cid.nome, "-", cid.uf), ""))  descricao,  ' + '        cli.nome                      ' + ' from   db_vendas.cliente cli left join 	       ' + '   	   db_vendas.cidade cid          ' + ' on   cid.id_cidade = cli.id_cidade ' + lWhere;
+  lQrCliente.SQL.Text :=  ' select cli.id_cliente,		           ' +
+                          '        concat(cli.id_cliente, " - " ,cli.nome, IFNULL(concat(" / ", cid.nome, "-", cid.uf), ""))  descricao,  ' +
+                          '        cli.nome                      ' +
+                          ' from   db_vendas.cliente cli left join 	       ' +
+                          '   	   db_vendas.cidade cid          ' +
+                          '        on   cid.id_cidade = cli.id_cidade ' +
+                          lWhere;
 
   lQrCliente.ParamByName('filtro').Value := pFiltro;
   lQrCliente.Prepare;

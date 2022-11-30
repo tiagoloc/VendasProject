@@ -39,7 +39,11 @@ begin
     pFiltro := '%' + pFiltro + '%'
   end;
 
-  lQryProduto.SQL.Text := ' SELECT pro.id_produto,       ' + '    	   pro.descricao,         ' + '        concat(pro.id_produto, " - " , pro.descricao)  descricao_prod,  ' + '        pro.preco             ' + ' FROM   db_vendas.produto pro ' + lWhere;
+  lQryProduto.SQL.Text := ' SELECT pro.id_produto,       ' +
+                          '    	   pro.descricao,         ' +
+                          '        concat(pro.id_produto, " - " , pro.descricao)  descricao_prod,  ' +
+                          '        pro.preco             ' + ' FROM   db_vendas.produto pro ' +
+                          lWhere;
 
   lQryProduto.ParamByName('filtro').Value := pFiltro;
   lQryProduto.Prepare;
