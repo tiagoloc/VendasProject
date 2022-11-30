@@ -141,6 +141,7 @@ object frmVendaView: TfrmVendaView
       ParentFont = False
       TabOrder = 3
       OnChange = edtValorUnitarioChange
+      OnExit = edtValorUnitarioExit
       OnKeyPress = edtValorUnitarioKeyPress
     end
     object btnAdicionarProduto: TButton

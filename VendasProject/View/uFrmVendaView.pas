@@ -67,6 +67,7 @@ type
     procedure btnAcaoPedidoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnConsultarFiltroClick(Sender: TObject);
+    procedure edtValorUnitarioExit(Sender: TObject);
   private
     { Private declarations }
     FAcaoTela: TAcao;
@@ -501,7 +502,8 @@ begin
 
   if Key = VK_DOWN then
   begin
-    dbgrdFiltro.SetFocus;
+    if dbgrdFiltro.CanFocus then
+      dbgrdFiltro.SetFocus;
   end;
 
   if (Key = VK_ESCAPE) then
@@ -563,7 +565,8 @@ begin
 
   if Key = VK_DOWN then
   begin
-    dbgrdProduto.SetFocus;
+    if dbgrdProduto.CanFocus then
+      dbgrdProduto.SetFocus;
   end;
 
   if (Key = VK_ESCAPE) then
@@ -601,15 +604,16 @@ begin
         end;
 
         if lPedidoController.GravarListaPedido then
-          ShowMessage('Pedido gravado com sucesso!')
+        begin
+          ShowMessage('Pedido gravado com sucesso!');
+          SetAcaoTela(tacSelecionarCliente);
+        end
         else
           ShowMessage('Erro ao gravar pedido!');
       finally
         lPedidoController.Free;
       end;
     end;
-
-    SetAcaoTela(tacSelecionarCliente);
   end
   else
   if FAcaoTela in [tacSelecionarPedido, tacEditarPedido] then
@@ -635,20 +639,23 @@ begin
   CalcularTotalProduto;
 end;
 
+procedure TfrmVendaView.edtValorUnitarioExit(Sender: TObject);
+var
+  lValorUnitario: Currency;
+begin
+  if TryStrToCurr(edtValorUnitario.Text, lValorUnitario) then
+    edtValorUnitario.Text := FormatFloat('#.00', lValorUnitario);
+end;
+
 procedure TfrmVendaView.edtValorUnitarioKeyPress(Sender: TObject; var Key: Char);
 begin
-  if (Key <> #8) and (Pos(',', TEdit(Sender).Text) > 0) and ((Length(TEdit(Sender).Text) - Pos(',', TEdit(Sender).Text)) = 2) then
-    Abort
-  else
-  begin
-    if (Key = #46) then
-      Key := Formatsettings.DecimalSeparator;
+  if (Key = #46) then
+    Key := Formatsettings.DecimalSeparator;
 
-    if not (CharInSet(Key, ['0'..'9', Chr(8), Formatsettings.DecimalSeparator])) then
-      Key := #0
-    else if (Key = Formatsettings.DecimalSeparator) and (Pos(Key, TEdit(Sender).Text) > 0) then
-      Key := #0;
-  end;
+  if not (CharInSet(Key, ['0'..'9', Chr(8), Formatsettings.DecimalSeparator])) then
+    Key := #0
+  else if (Key = Formatsettings.DecimalSeparator) and (Pos(Key, TEdit(Sender).Text) > 0) then
+    Key := #0;
 end;
 
 end.
