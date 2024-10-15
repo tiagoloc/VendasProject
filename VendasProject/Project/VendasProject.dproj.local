@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/10/20 19:05:12.000.047,=C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/14 10:50:15.000.777,=C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/11/14 14:44:50.000.289,=C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2022/11/14 14:45:32.000.224,C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\PROJETO WK\VendasProject\View\uFrmVendaView.pas</Transaction>
+    <Transaction>2022/11/14 14:45:32.000.224,C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\PROJETO WK\VendasProject\View\uFrmVendaView.dfm</Transaction>
+    <Transaction>2022/11/14 14:45:48.000.834,C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\PROJETO WK\VendasProject\Project\VendasProject.dproj</Transaction>
+    <Transaction>2022/11/14 14:46:21.000.574,C:\Users\tiago\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\PROJETO WK\VendasProject\Project\VendasProject.dproj</Transaction>
+    <Transaction>2022/11/28 15:46:19.000.381,=C:\PROJETO WK\VendasProject\DAO\uClienteDAO.pas</Transaction>
+    <Transaction>2022/11/28 15:46:19.000.439,=C:\PROJETO WK\VendasProject\DAO\uConexao.pas</Transaction>
+    <Transaction>2022/11/28 15:47:29.000.127,=C:\PROJETO WK\VendasProject\Model\uEnumerado.pas</Transaction>
+    <Transaction>2022/11/28 15:47:29.000.067,=C:\PROJETO WK\VendasProject\Model\uClienteModel.pas</Transaction>
+    <Transaction>2022/11/28 15:47:41.000.801,=C:\PROJETO WK\VendasProject\Controller\uClienteController.pas</Transaction>
+    <Transaction>2022/11/28 15:50:56.000.668,C:\PROJETO WK\VendasProject\Model\uEnumAcoes.pas=C:\PROJETO WK\VendasProject\Model\uEnumerado.pas</Transaction>
+    <Transaction>2022/11/28 15:52:38.000.244,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 15:52:52.000.325,C:\PROJETO WK\VendasProject\Controller\uSistemaController.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 15:54:04.000.015,C:\PROJETO WK\VendasProject\Controller\uSistemaController.pas=</Transaction>
+    <Transaction>2022/11/28 15:58:05.000.892,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 15:58:27.000.450,C:\PROJETO WK\VendasProject\Controller\uConexaoController.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 16:01:44.000.017,C:\PROJETO WK\VendasProject\View\uFrmVendaView.pas=</Transaction>
+    <Transaction>2022/11/28 16:02:01.000.106,=C:\PROJETO WK\VendasProject\View\uFrmVendaView.pas</Transaction>
+    <Transaction>2022/11/28 20:15:56.000.248,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 20:16:09.000.701,C:\PROJETO WK\VendasProject\DAO\uProdutoDAO.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 20:19:24.000.189,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 20:19:44.000.677,C:\PROJETO WK\VendasProject\Model\uProdutoModel.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 20:22:25.000.330,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/28 20:22:41.000.464,C:\PROJETO WK\VendasProject\Controller\uProdutoController.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 00:16:25.000.558,C:\PROJETO WK\VendasProject\Model\uEnumAcoes.pas=</Transaction>
+    <Transaction>2022/11/29 11:19:49.000.607,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 11:20:30.000.598,C:\PROJETO WK\VendasProject\Model\uPedidoModel.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 11:33:41.000.554,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 11:34:05.000.216,C:\PROJETO WK\VendasProject\Controller\uPedidoController.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 11:53:56.000.182,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 11:54:09.000.116,C:\PROJETO WK\VendasProject\Model\uPedidoProdutoModel.pas=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 12:14:50.000.236,=C:\PROJETO WK\VendasProject\Project\Unit1.pas</Transaction>
+    <Transaction>2022/11/29 12:15:04.000.323,C:\PROJETO WK\VendasProject\Project\Unit1.pas=C:\PROJETO WK\VendasProject\DAO\uPedidoDAO.pas</Transaction>
+    <Transaction>2022/11/29 17:50:22.000.670,C:\PROJETO WK\VendasProject\Project\VendasProject.dproj=C:\PROJETO WK\VendasProject\Project\VendasProject.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\VendasProject"/>
+    <File Path="..\Controller"/>
+    <File Path="..\Controller\uClienteController.pas"/>
+    <File Path="..\Controller\uConexaoController.pas"/>
+    <File Path="..\Controller\uPedidoController.pas"/>
+    <File Path="..\Controller\uProdutoController.pas"/>
+    <File Path="..\DAO"/>
+    <File Path="..\DAO\uClienteDAO.pas"/>
+    <File Path="..\DAO\uConexao.pas"/>
+    <File Path="..\DAO\uPedidoDAO.pas"/>
+    <File Path="..\DAO\uProdutoDAO.pas"/>
+    <File Path="..\Model"/>
+    <File Path="..\Model\uClienteModel.pas"/>
+    <File Path="..\Model\uPedidoModel.pas"/>
+    <File Path="..\Model\uPedidoProdutoModel.pas"/>
+    <File Path="..\Model\uProdutoModel.pas"/>
+    <File Path="..\View"/>
+    <File Path="..\View\uFrmVendaView.pas"/>
+    <File Path="..\View\uFrmVendaView.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
